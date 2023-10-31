@@ -51,14 +51,11 @@ body {
     position: relative; /* Tooltip positioning */
     padding: 3px 7px; /* Reduced padding around the button */
 }
-.search-btn::before {
-    content: '🔍'; /* Magnifying glass emoji */
-    font-size: 20px; /* Adjust size as needed */
-}
 
 /* Hover effect for button */
 .search-btn:hover {
-    background-color: #e0e0e0; /* Background color change on hover */
+    background-color: #89C5E4; /* Darker blue for hover effect */
+    color: #FFF; /* White text on hover */
     border-radius: 10px; /* Border-radius to the button */
 }
 
@@ -87,8 +84,8 @@ body {
 
 /* Active state when input has content */
 .search-btn.active {
-    color: #a04197; /* A slightly lighter shade of purple */
-    background-color: #a04197; /* Lighter shade for the entire button area */
-    border-radius: 10px;
-    color: white; /* White color arrow for better visibility on purple */
+    background-color: #AEDFF7; /* Soft Blue */
+    border: 1px solid #89C5E4; /* Slightly darker blue for the border */
+    color: #333; /* Dark text color for contrast */
+    transition: 0.3s; /* Smooth transition for hover effects */
 }
