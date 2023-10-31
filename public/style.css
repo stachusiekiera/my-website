@@ -10,6 +10,14 @@ body {
     margin: 0; /* Remove default margin */
 }
 
+.search-bar input {
+    min-width: 200px; /* adjust as per your requirement */
+    max-width: 500px; /* adjust as per your requirement */
+    width: auto; /* this will allow the input to expand or shrink as per its content */
+    overflow: hidden; /* to ensure content doesn't spill over */
+    white-space: nowrap; /* prevents the text from wrapping to the next line */
+}
+
 /* Search bar styling */
 .search-bar {
     display: flex;
