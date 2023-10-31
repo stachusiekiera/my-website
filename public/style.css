@@ -1,6 +1,6 @@
 /* Base styles */
 body {
-    font-family: 'Roboto', sans-serif; /* Updated to Roboto for a modern look */
+    font-family: 'Arial', sans-serif; /* Updated to Roboto for a modern look */
     background-color: #f8f8f8;
     display: flex;
     flex-direction: column;
@@ -44,20 +44,55 @@ body {
     font-size: 18px;
 }
 
+/* Button styling */
 .search-btn {
-    margin-left: 10px;
+    margin-left: 10px; /* Spacing between the input and the button */
     background: none;
     border: none;
-    font-size: 22px;
+    font-size: 22px; /* Reduced font size for the pointer */
     cursor: pointer;
     outline: none;
-    transition: background-color 0.3s, color 0.3s;
-    color: grey;
-    padding: 10px;
-    border-radius: 50%;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    color: grey; /* Initial arrow color to grey */
+    position: relative; /* Tooltip positioning */
+    padding: 3px 7px; /* Reduced padding around the button */
 }
 
+/* Hover effect for button */
 .search-btn:hover {
-    background-color: #89C5E4;
-    color: #FFF;
+    background-color: #89C5E4; /* Darker blue for hover effect */
+    color: #FFF; /* White text on hover */
+    border-radius: 10px; /* Border-radius to the button */
+}
+
+.search-btn:hover:not(.active) {
+    color: #000; /* Black color */
+    transform: scale(1.1); /* Increase the size slightly on hover for interactivity */
+}
+
+.search-btn:hover:not(.active):before {
+    content: 'Send message'; 
+    position: absolute; 
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners except for bottom-left */
+    bottom: 100%; /* Above the pointer */
+    right: 0; /* To the right */
+    font-size: 14px;
+    font-family: 'Arial', sans-serif; /* Ensure tooltip uses the same font */
+    white-space: nowrap; /* Ensure the text doesn't wrap */
+}
+
+.search-btn:active {
+    transform: scale(0.90); /* Slightly decrease the size when clicked for a "press" effect */
+}
+
+/* Active state when input has content */
+.search-btn.active {
+    background-color: #AEDFF7; /* Soft Blue */
+    border: 1px solid #89C5E4; /* Slightly darker blue for the border */
+    color: #333; /* Dark text color for contrast */
+    transition: 0.3s; /* Smooth transition for hover effects */
+    border-radius: 10px
 }
