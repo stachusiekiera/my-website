@@ -33,3 +33,21 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     // For example, if you want to emulate a button click, you can do:
     document.querySelector('.search-btn').click();
 });
+
+document.querySelector('.search-bar input').addEventListener('keydown', function(e) {
+    if (e.keyCode === 13) { // 13 is the key code for Enter
+        e.preventDefault(); // Prevent the default behavior
+
+        const btn = document.getElementById('searchButton');
+        
+        // Simulate the active state
+        btn.style.transform = 'scale(0.90)';
+        
+        // Return to normal state after 100ms
+        setTimeout(function() {
+            btn.style.transform = '';
+        }, 100);
+        
+        // Here, you can add the code for the actual search functionality
+    }
+});
