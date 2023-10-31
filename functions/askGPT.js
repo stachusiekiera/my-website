@@ -1,32 +1,27 @@
-const { Configuration, OpenAIApi } = require("openai");
+const OPENAI_API_URL = "https://api.openai.com/v1/engines/text-davinci-003/completions";
+const API_KEY = "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"; // Replace with your OpenAI API key.
 
-exports.handler = async function(event, context) {
-    if (event.httpMethod !== "POST") {
-        return { statusCode: 405, body: "Method Not Allowed" };
-    }
-
-    const { question } = JSON.parse(event.body);
-    const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
+async function askGPT(question) {
+    const headers = new Headers({
+        "Authorization": `Bearer ${API_KEY}`,
+        "Content-Type": "application/json"
     });
-    const openai = new OpenAIApi(configuration);
 
-    try {
-        const response = await openai.createCompletion({
-            engine: "davinci",
-            prompt: question,
-            max_tokens: 150
-        });
+    const body = JSON.stringify({
+        prompt: question,
+        max_tokens: 150
+    });
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ answer: response.data.choices[0].text.trim() })
-        };
-    } catch (error) {
-        console.error("Error:", error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: error.message })
-        };
-    }
-};
+    const requestOptions = {
+        method: "POST",
+        headers: headers,
+        body: body
+    };
+
+    const response = await fetch(OPENAI_API_URL, requestOptions);
+    const data = await response.json();
+
+    return data.choices[0].text.trim();
+}
+
+export default askGPT;
