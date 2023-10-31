@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+
 exports.handler = async function(event, context) {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
@@ -23,9 +24,10 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({ answer: response.data.choices[0].text.trim() })
     };
   } catch (error) {
+    console.error("Error:", error);
     return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Error fetching response from OpenAI" })
+        statusCode: 500,
+        body: JSON.stringify({ error: error.message })
     };
   }
 };
