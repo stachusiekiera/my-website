@@ -38,6 +38,11 @@ document.querySelector('.search-bar input').addEventListener('keydown', function
     if (e.keyCode === 13) { // 13 is the key code for Enter
         e.preventDefault(); // Prevent the default behavior
 
+        // Check if the input is empty or contains only whitespace
+        if (this.value.trim() === "") {
+            return; // Exit the function without doing anything
+        }
+
         const btn = document.getElementById('searchButton');
         
         // Simulate the active state
