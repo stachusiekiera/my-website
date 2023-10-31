@@ -1,94 +1,63 @@
 /* Base styles */
 body {
-    font-family: 'Arial', sans-serif; /* Default font family */
-    background-color: #f8f8f8; /* Subtle background color */
+    font-family: 'Roboto', sans-serif; /* Updated to Roboto for a modern look */
+    background-color: #f8f8f8;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0; /* Remove default margin */
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
 }
 
 /* Search bar styling */
-.search-bar .search-input {
-    width: 80%; 
-    height: auto; 
-    min-height: 30px; 
-    overflow-y: hidden; 
-    resize: none; 
-    display: block;
+.search-bar {
+    display: flex;
+    align-items: center;
     background-color: #f4f4f4;
-    border-radius: 20px 0 0 20px; 
+    border-radius: 25px;
     padding: 10px;
-    border: none;
-    box-shadow: none;
-    outline: none;
+    width: 100%;
     transition: all 0.3s;
-    font-size: 16px; 
-    line-height: 1.5;
 }
 
-.search-bar .search-input:focus {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.search-bar .search-input {
+    flex: 1;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background-color: transparent;
+    padding: 10px 20px;
+    font-size: 18px;
 }
 
-
-
-.search-bar:hover {
-    width: 420px; /* Increase width on hover */
-    background-color: #eaeaea; /* Background color change on hover */
-}
-
-/* Button styling */
 .search-btn {
-    margin-left: 10px; /* Spacing between the input and the button */
+    margin-left: 10px;
     background: none;
     border: none;
-    font-size: 22px; /* Reduced font size for the pointer */
+    font-size: 22px;
     cursor: pointer;
     outline: none;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-    color: grey; /* Initial arrow color to grey */
-    position: relative; /* Tooltip positioning */
-    padding: 3px 7px; /* Reduced padding around the button */
+    transition: background-color 0.3s, color 0.3s;
+    color: grey;
+    padding: 10px;
+    border-radius: 50%;
 }
 
-/* Hover effect for button */
 .search-btn:hover {
-    background-color: #89C5E4; /* Darker blue for hover effect */
-    color: #FFF; /* White text on hover */
-    border-radius: 10px; /* Border-radius to the button */
-}
-
-.search-btn:hover:not(.active) {
-    color: #000; /* Black color */
-    transform: scale(1.1); /* Increase the size slightly on hover for interactivity */
-}
-
-.search-btn:hover:not(.active):before {
-    content: 'Send message'; 
-    position: absolute; 
-    background-color: #f4f4f4;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px; /* Rounded corners except for bottom-left */
-    bottom: 100%; /* Above the pointer */
-    right: 0; /* To the right */
-    font-size: 14px;
-    font-family: 'Arial', sans-serif; /* Ensure tooltip uses the same font */
-    white-space: nowrap; /* Ensure the text doesn't wrap */
-}
-
-.search-btn:active {
-    transform: scale(0.90); /* Slightly decrease the size when clicked for a "press" effect */
-}
-
-/* Active state when input has content */
-.search-btn.active {
-    background-color: #AEDFF7; /* Soft Blue */
-    border: 1px solid #89C5E4; /* Slightly darker blue for the border */
-    color: #333; /* Dark text color for contrast */
-    transition: 0.3s; /* Smooth transition for hover effects */
-    border-radius: 10px
+    background-color: #89C5E4;
+    color: #FFF;
 }
