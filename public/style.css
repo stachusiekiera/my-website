@@ -43,12 +43,13 @@ body {
     margin-left: 10px; /* Add some spacing between the input and the button */
     background: none;
     border: none;
-    font-size: 18px;
+    font-size: 24px; /* Increased font size for the pointer */
     cursor: pointer;
     outline: none;
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
     color: grey; /* Set initial arrow color to grey */
     position: relative; /* Added for the tooltip positioning */
+    padding: 5px 10px; /* Add padding around the button */
 }
 
 /* Hover effect for button */
@@ -62,19 +63,24 @@ body {
     color: #000; /* Black color */
 }
 
-.search-btn:hover:not(.active):after {
+.search-btn:hover:not(.active):before {
     content: 'Send message'; 
     position: absolute; 
-    background-color: white;
-    padding: 5px;
+    background-color: #f4f4f4;
+    padding: 5px 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 5px;
-    margin-left: 5px;
+    border-radius: 10px 10px 0 10px; /* Rounded corners except for bottom-left */
+    bottom: 100%; /* Above the pointer */
+    right: 0; /* To the right */
     font-size: 14px;
+    font-family: 'Arial', sans-serif; /* Ensure tooltip uses the same font */
+    white-space: nowrap; /* Ensure the text doesn't wrap */
 }
 
 /* Active state when input has content */
 .search-btn.active {
     color: purple;
+    background-color: purple; /* Set the background color for the entire button area */
+    border-radius: 10px;
+    color: white; /* Set the arrow color to white for better visibility on purple */
 }
