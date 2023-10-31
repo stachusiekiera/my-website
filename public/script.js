@@ -17,3 +17,20 @@ searchContainer.addEventListener('focusout', () => {
     searchContainer.style.width = "300px";
     searchContainer.style.backgroundColor = "#f5f5f5";
 });
+
+const inputField = document.querySelector('.search-bar input');
+const popupWindow = document.createElement('div');
+popupWindow.className = 'popup-window';
+popupWindow.textContent = 'Send message';
+
+inputField.addEventListener('mouseenter', () => {
+    // Display the pop-up window near the input field
+    inputField.parentElement.appendChild(popupWindow);
+    popupWindow.style.left = inputField.offsetLeft + inputField.offsetWidth + 10 + 'px';
+    popupWindow.style.top = inputField.offsetTop + 'px';
+});
+
+inputField.addEventListener('mouseleave', () => {
+    // Hide the pop-up window when the mouse leaves the input field
+    popupWindow.remove();
+});
