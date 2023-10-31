@@ -56,7 +56,7 @@ body {
 .search-btn:hover {
     background-color: #89C5E4; /* Darker blue for hover effect */
     color: #FFF; /* White text on hover */
-    border-radius: 50px; /* Border-radius to the button */
+    border-radius: 20px; /* Border-radius to the button */
 }
 
 .search-btn:hover:not(.active) {
@@ -70,7 +70,7 @@ body {
     background-color: #f4f4f4;
     padding: 5px 10px;
     border: 1px solid #ccc;
-    border-radius: 50px; /* Rounded corners except for bottom-left */
+    border-radius: 20px; /* Rounded corners except for bottom-left */
     bottom: 100%; /* Above the pointer */
     right: 0; /* To the right */
     font-size: 14px;
@@ -79,7 +79,7 @@ body {
 }
 
 .search-btn:active {
-    transform: scale(0.95); /* Slightly decrease the size when clicked for a "press" effect */
+    transform: scale(0.90); /* Slightly decrease the size when clicked for a "press" effect */
 }
 
 /* Active state when input has content */
@@ -88,4 +88,5 @@ body {
     border: 1px solid #89C5E4; /* Slightly darker blue for the border */
     color: #333; /* Dark text color for contrast */
     transition: 0.3s; /* Smooth transition for hover effects */
+    border-radius: 20px
 }
