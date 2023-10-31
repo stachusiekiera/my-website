@@ -51,6 +51,10 @@ body {
     position: relative; /* Tooltip positioning */
     padding: 3px 7px; /* Reduced padding around the button */
 }
+.search-btn::before {
+    content: '🔍'; /* Magnifying glass emoji */
+    font-size: 20px; /* Adjust size as needed */
+}
 
 /* Hover effect for button */
 .search-btn:hover {
