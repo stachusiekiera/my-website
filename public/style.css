@@ -46,11 +46,35 @@ body {
     font-size: 18px;
     cursor: pointer;
     outline: none;
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    color: grey; /* Set initial arrow color to grey */
+    position: relative; /* Added for the tooltip positioning */
 }
 
 /* Hover effect for button */
 .search-btn:hover {
     background-color: #e0e0e0; /* Slight change to background color on hover */
     border-radius: 10px; /* Add border-radius to the button */
+}
+
+/* Hover effect for button when there's no content */
+.search-btn:hover:not(.active) {
+    color: #000; /* Black color */
+}
+
+.search-btn:hover:not(.active):after {
+    content: 'Send message'; 
+    position: absolute; 
+    background-color: white;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+/* Active state when input has content */
+.search-btn.active {
+    color: purple;
 }
