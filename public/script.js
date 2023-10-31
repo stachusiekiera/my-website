@@ -1,9 +1,21 @@
 // Handle search button click
-document.querySelector('.search-btn').addEventListener('click', function() {
+document.querySelector('.search-btn').addEventListener('click', async function() {
     const query = document.querySelector('.search-bar input').value;
-    console.log("Searching for:", query);
-    // You can replace the above line with any functionality you want.
+    if(query.trim() !== "") {
+        const response = await fetch('/.netlify/functions/askGPT', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ question: query })
+        });
+        const data = await response.json();
+        console.log(data.answer);  // You can display this answer on your webpage
+    }
 });
+
+// ... rest of your code ...
+
 
 // Handle focus and blur (focusout) events on the search bar
 const searchContainer = document.querySelector('.search-bar');
