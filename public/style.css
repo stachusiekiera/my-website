@@ -1,26 +1,13 @@
 /* Base styles */
 body {
-    font-family: 'Arial', sans-serif; /* Updated to Roboto for a modern look */
-    background-color: #f8f8f8;
+    font-family: 'Arial', sans-serif; /* Default font family */
+    background-color: #f8f8f8; /* Subtle background color */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-}
-
-.container {
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-}
-
-.title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #333;
+    margin: 0; /* Remove default margin */
 }
 
 /* Search bar styling */
@@ -28,20 +15,32 @@ body {
     display: flex;
     align-items: center;
     background-color: #f4f4f4;
-    border-radius: 25px;
+    border-radius: 20px;
     padding: 10px;
-    width: 100%;
-    transition: all 0.3s;
+    width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s, background-color 0.3s; /* Smooth transition */
 }
 
-.search-bar .search-input {
+.search-bar:hover {
+    width: 420px; /* Increase width on hover */
+    background-color: #eaeaea; /* Background color change on hover */
+}
+
+/* Input field styling */
+.search-bar input {
     flex: 1;
     border: none;
-    border-radius: 20px;
+    border-radius: 20px; /* Consistent appearance with border-radius */
     outline: none;
     background-color: transparent;
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 10px;
+    font-size: 16px;
+    min-width: 200px; /* adjust as per your requirement */
+    max-width: 1000px; /* adjust as per your requirement */
+    width: auto; /* this will allow the input to expand or shrink as per its content */
+    overflow: hidden; /* to ensure content doesn't spill over */
+    white-space: nowrap; /* prevents the text from wrapping to the next line */
 }
 
 /* Button styling */

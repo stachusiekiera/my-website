@@ -1,6 +1,6 @@
 // Handle search button click
 document.querySelector('.search-btn').addEventListener('click', function() {
-    const query = document.querySelector('.search-bar .search-input').value;
+    const query = document.querySelector('.search-bar input').value;
     console.log("Searching for:", query);
     // You can replace the above line with any functionality you want.
 });
@@ -18,7 +18,7 @@ searchContainer.addEventListener('focusout', () => {
     searchContainer.style.backgroundColor = "#f5f5f5";
 });
 // Check input for content and update button color
-document.querySelector('.search-bar .search-input').addEventListener('input', function() {
+document.querySelector('.search-bar input').addEventListener('input', function() {
     if (this.value.length > 0) {
         document.querySelector('.search-btn').classList.add('active');
     } else {
@@ -34,7 +34,7 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     document.querySelector('.search-btn').click();
 });
 
-document.querySelector('.search-bar .search-input').addEventListener('keydown', function(e) {
+document.querySelector('.search-bar input').addEventListener('keydown', function(e) {
     if (e.keyCode === 13) { // 13 is the key code for Enter
         e.preventDefault(); // Prevent the default behavior
 
@@ -55,8 +55,4 @@ document.querySelector('.search-bar .search-input').addEventListener('keydown', 
         
         // Here, you can add the code for the actual search functionality
     }
-});
-document.querySelector('.search-bar .search-input').addEventListener('input', function() {
-    this.rows = 1; // reset rows
-    this.rows = (this.scrollHeight / 20); // assuming 20 is the height per row, adjust as necessary
 });
