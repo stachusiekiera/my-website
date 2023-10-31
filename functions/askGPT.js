@@ -7,10 +7,25 @@ exports.handler = async function(event, context) {
 
   const { question } = JSON.parse(event.body);
 
-  // Here, you'll make the call to the GPT API.
-  // For simplicity, let's return a dummy response for now:
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ answer: `Answer to: ${question}` })
-  };
+  try {
+    const response = await axios.post('https://api.openai.com/v2/engines/davinci/completions', {
+      prompt: question,
+      max_tokens: 150
+    }, {
+      headers: {
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ answer: response.data.choices[0].text.trim() })
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Error fetching response from OpenAI" })
+    };
+  }
 };

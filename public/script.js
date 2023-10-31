@@ -38,13 +38,24 @@ document.querySelector('.search-bar input').addEventListener('input', function()
     }
 });
 
-document.getElementById('searchForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent the default form submission
+document.getElementById("searchForm").addEventListener("submit", async (e) => {
+    e.preventDefault();  // Prevent the default form submission behavior
 
-    // Your desired action here
-    // For example, if you want to emulate a button click, you can do:
-    document.querySelector('.search-btn').click();
+    const question = document.getElementById("searchInput").value;
+    if (!question) return;  // Do nothing if the input is empty
+
+    const response = await fetch("/.netlify/functions/askGPT", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ prompt: question })
+    });
+
+    const data = await response.json();
+    document.getElementById("gptResponse").innerText = data.response;
 });
+
 
 document.querySelector('.search-bar input').addEventListener('keydown', function(e) {
     if (e.keyCode === 13) { // 13 is the key code for Enter
