@@ -54,25 +54,3 @@ body {
     background-color: #e0e0e0; /* Slight change to background color on hover */
     border-radius: 10px; /* Add border-radius to the button */
 }
-
-/* Initially, set the cursor to "not-allowed" (greyed out) */
-.search-bar input {
-    cursor: not-allowed;
-}
-
-/* Define a CSS class for the pop-up window */
-.popup-window {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-/* When the input field has focus (purple) */
-.search-bar input:focus {
-    cursor: text; /* Change cursor to text cursor */
-    border-color: purple; /* Add a border or any other style you prefer */
-}
