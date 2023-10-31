@@ -25,3 +25,11 @@ document.querySelector('.search-bar input').addEventListener('input', function()
         document.querySelector('.search-btn').classList.remove('active');
     }
 });
+
+document.getElementById('searchForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Your desired action here
+    // For example, if you want to emulate a button click, you can do:
+    document.querySelector('.search-btn').click();
+});
