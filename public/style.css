@@ -50,17 +50,6 @@ body {
     color: grey; /* Initial arrow color to grey */
     position: relative; /* Tooltip positioning */
     padding: 3px 7px; /* Reduced padding around the button */
-    text-align: center;  /* Align the emoji to the center */
-}
-
-/* Add magnifying glass emoji to the button */
-.search-btn::before {
-    content: '🔍'; 
-    font-size: 20px; 
-    position: absolute; 
-    left: 50%; 
-    top: 50%; 
-    transform: translate(-50%, -50%); /* This centers the icon within the button */
 }
 
 /* Hover effect for button */
