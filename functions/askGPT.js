@@ -1,27 +1,24 @@
-const OPENAI_API_URL = "https://api.openai.com/v1/engines/text-davinci-003/completions";
-const API_KEY = "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"; // Replace with your OpenAI API key.
+const axios = require('axios');
 
-async function askGPT(question) {
-    const headers = new Headers({
-        "Authorization": `Bearer ${API_KEY}`,
-        "Content-Type": "application/json"
-    });
+exports.handler = async function(event, context) {
+    try {
+        const response = await axios.post("https://api.openai.com/v1/engines/text-davinci-003/completions", {
+            // ... your request body here ...
+        }, {
+            headers: {
+                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+                'Content-Type': 'application/json'
+            }
+        });
 
-    const body = JSON.stringify({
-        prompt: question,
-        max_tokens: 150
-    });
-
-    const requestOptions = {
-        method: "POST",
-        headers: headers,
-        body: body
-    };
-
-    const response = await fetch(OPENAI_API_URL, requestOptions);
-    const data = await response.json();
-
-    return data.choices[0].text.trim();
-}
-
-export default askGPT;
+        return {
+            statusCode: 200,
+            body: JSON.stringify(response.data)
+        };
+    } catch (error) {
+        return {
+            statusCode: error.response ? error.response.status : 500,
+            body: JSON.stringify(error.message)
+        };
+    }
+};
