@@ -56,3 +56,8 @@ document.querySelector('.search-bar input').addEventListener('keydown', function
         // Here, you can add the code for the actual search functionality
     }
 });
+
+$('textarea').on('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+});

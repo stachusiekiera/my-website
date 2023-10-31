@@ -11,7 +11,10 @@ body {
 }
 
 /* Search bar styling */
-.search-bar {
+.search-bar textarea {
+    max-height: 150px; /* adjust as per your requirement */
+    overflow-y: auto; /* this will show vertical scrollbar if content exceeds max-height */
+    resize: none; /* to prevent manual resizing by the user */
     display: flex;
     align-items: center;
     background-color: #f4f4f4;
@@ -36,11 +39,6 @@ body {
     background-color: transparent;
     padding: 10px;
     font-size: 16px;
-    min-width: 200px; /* adjust as per your requirement */
-    max-width: 1000px; /* adjust as per your requirement */
-    width: auto; /* this will allow the input to expand or shrink as per its content */
-    overflow: hidden; /* to ensure content doesn't spill over */
-    white-space: nowrap; /* prevents the text from wrapping to the next line */
 }
 
 /* Button styling */
