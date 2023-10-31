@@ -56,7 +56,7 @@ body {
 .search-btn:hover {
     background-color: #89C5E4; /* Darker blue for hover effect */
     color: #FFF; /* White text on hover */
-    border-radius: 10px; /* Border-radius to the button */
+    border-radius: 50px; /* Border-radius to the button */
 }
 
 .search-btn:hover:not(.active) {
@@ -70,7 +70,7 @@ body {
     background-color: #f4f4f4;
     padding: 5px 10px;
     border: 1px solid #ccc;
-    border-radius: 10px; /* Rounded corners except for bottom-left */
+    border-radius: 50px; /* Rounded corners except for bottom-left */
     bottom: 100%; /* Above the pointer */
     right: 0; /* To the right */
     font-size: 14px;
