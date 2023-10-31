@@ -55,10 +55,12 @@ body {
 
 /* Add magnifying glass emoji to the button */
 .search-btn::before {
-    content: '🔍';  /* Magnifying glass emoji */
-    font-size: 20px;  /* Adjust size as needed */
-    display: inline-block;  /* Inline-block to manage positioning */
-    vertical-align: middle; /* Vertically center the emoji */
+    content: '🔍'; 
+    font-size: 20px; 
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); /* This centers the icon within the button */
 }
 
 /* Hover effect for button */
