@@ -1,5 +1,5 @@
 const OPENAI_API_URL = "https://api.openai.com/v1/engines/text-davinci-003/completions";
-const API_KEY = "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"; // Replace with your OpenAI API key.
+const API_KEY = "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"; // Replace with your OpenAI API key.
 
 async function askGPT(question) {
     const headers = new Headers({
