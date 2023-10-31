@@ -11,10 +11,7 @@ body {
 }
 
 /* Search bar styling */
-.search-bar textarea {
-    max-height: 150px; /* adjust as per your requirement */
-    overflow-y: auto; /* this will show vertical scrollbar if content exceeds max-height */
-    resize: none; /* to prevent manual resizing by the user */
+.search-bar {
     display: flex;
     align-items: center;
     background-color: #f4f4f4;
